@@ -1,11 +1,99 @@
 ---
 title: 'Quickstart'
-description: 'Start building awesome documentation in under 5 minutes....'
+description: 'Deployment Guide'
 ---
+### Prerequisites
+Before deploying Vurilo TMIS, ensure your server meets the following minimum requirements:
+- **Application Server:**
+  - **OS:** Linux
+  - **RAM:** 8 GB
+  - **CPU:** 2 Cores (4 Cores recommended)
+  - **Hard Drive:** 100 GB
+- **Database Server:**
+  - **OS:** Linux
+  - **RAM:** 4 GB (8 GB recommended)
+  - **CPU:** 2 Cores (4 Cores recommended)
+  - **Hard Drive:** 100 GB (Increase as per storage needs)
+- **Video Server:**
+  - **OS:** Linux
+  - **RAM:** 8 GB
+  - **CPU:** 4 Cores
+  - **Hard Drive:** 100 GB (Increase as per storage needs)
 
-## Setup your development
+Additionally, you'll need to install Minio for object storage. Instructions for installing Minio are provided below.
 
-Learn how to update your docs locally and and deploy them to the public.
+### Step 1: Install Docker on Linux Machine (If not installed)
+
+```bash
+    sudo apt update
+    sudo apt install docker.io
+    sudo systemctl start docker
+    sudo systemctl enable docker
+    docker --version
+    sudo docker run hello-world
+```
+### Step 2: Install MySQL (If not installed)
+
+```bash
+    sudo apt install mysql-server
+    sudo mysql_secure_installation
+    sudo systemctl start mysql
+    sudo systemctl enable mysql
+    mysql -u root
+```
+
+### Step 3:Database Configuration:
+Once MySQL is installed, configure the database for the application by executing the following SQL commands:
+
+```bash
+    CREATE DATABASE TMIS;
+    CREATE USER 'TMIS'@'%' IDENTIFIED BY 'password';
+    GRANT ALL PRIVILEGES ON TMIS.* TO 'TMIS'@'%';
+    FLUSH PRIVILEGES;
+```
+
+### Step 4: Setup and Configuration of Application Server
+Follow these steps to set up and configure the application server using Docker:
+
+1. Obtain SSL certificates and private keys from the client and place them in the appropriate directories within the application.
+2. Create a docker-compose.yml file in the application root directory.
+3. Inside the nginx folder, create a Dockerfile with appropriate content.
+4. Update docker-compose.yml with environment variables and configuration.
+5. Build and run Docker containers:
+```bash
+    sudo docker-compose build
+    sudo docker-compose up -d
+```
+
+### Step 5: Deploy SSL Certificates
+To deploy SSL certificates, create a docker-compose-certificate.yml file with appropriate environment variables. Then, execute the following commands:
+``` bash
+    sudo docker-compose -f docker-compose-certificate.yml build
+    sudo docker-compose -f docker-compose-certificate.yml up -d
+```
+
+### Step 2: Configure Minio
+1. Once Minio is installed, you need to set up buckets and access policies.
+2. Ensure Minio is running and accessible from your application server.
+
+### Step 3: Deploy Vurilo TMIS
+Follow the deployment steps provided in the previous section to pull the Vurilo TMIS Docker image and run the container.
+
+### Step 4: Access Vurilo TMIS
+After deploying Vurilo TMIS, access it via a web browser using the appropriate URL.
+
+### Step 5: Initial Setup
+Complete the initial setup process within Vurilo TMIS to configure system settings, create admin accounts, and set up your organization's details.
+
+### Step 6: Start Exploring
+Congratulations! You've successfully deployed Vurilo TMIS with Minio for object storage. Start exploring the features and functionalities to create, manage, and deliver engaging learning experiences.
+
+### Additional Resources
+- For advanced configurations and customization options, refer to the [Vurilo TMIS documentation](#) (link to documentation).
+- Join the Vurilo community on [GitHub](https://github.com/vurilo) to stay updated, report issues, and contribute to the project.
+### Prerequisites
+Before deploying Vurilo TMIS, ensure you have the following prerequisites:
+- Docker installed on your system. You can download and install Docker from [docker hub](https://hub.docker.com/r/vurilo/tmis).
 
 ### Edit and preview
 
