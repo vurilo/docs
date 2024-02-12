@@ -1,28 +1,28 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Starter Kit",
+  "name": "Documentation",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#0D9373",
-    "light": "#07C983",
-    "dark": "#0D9373",
+    "primary": "#123646",
+    "light": "#10DDC2",
+    "dark": "#123646",
     "anchors": {
-      "from": "#0D9373",
-      "to": "#07C983"
+      "from": "#123646",
+      "to": "#10DDC2"
     }
   },
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:hi@mintlify.com"
+      "url": "mailto:support@vurilo.com"
     }
   ],
   "topbarCtaButton": {
-    "name": "Dashboard",
+    "name": "",
     "url": "https://dashboard.mintlify.com"
   },
   "tabs": [
@@ -35,17 +35,12 @@
     {
       "name": "Documentation",
       "icon": "book-open-cover",
-      "url": "https://mintlify.com/docs"
-    },
-    {
-      "name": "Community",
-      "icon": "slack",
-      "url": "https://mintlify.com/community"
+      "url": "https://docs.vurilo.com/"
     },
     {
       "name": "Blog",
       "icon": "newspaper",
-      "url": "https://mintlify.com/blog"
+      "url": "https://blog.vurilo.com/"
     }
   ],
   "navigation": [
@@ -84,8 +79,10 @@
     }
   ],
   "footerSocials": {
-    "twitter": "https://twitter.com/mintlify",
-    "github": "https://github.com/mintlify",
-    "linkedin": "https://www.linkedin.com/company/mintsearch"
+    "facebook":"https://www.facebook.com/vuriloapp",
+    "instagram": "https://www.instagram.com/vuriloapp/",
+    "youtube":"https://www.youtube.com/@VuriloApp",
+    "github": "https://github.com/vurilo",
+    "linkedin": "https://www.linkedin.com/company/vuriloapp/"
   }
 }
