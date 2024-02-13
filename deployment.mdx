@@ -1,0 +1,116 @@
+---
+title: Deployment
+description: "Deployment Guide"
+---
+
+This guide provides detailed instructions for deploying a standalone application on a Linux server, including setting up MySQL database, Docker, application server, SSL certificate deployment, and MinIO file server setup. Below is the step-by-step guide:
+
+### Prerequisites:
+- MySQL database
+- Ubuntu 20.04 (server)
+- Docker installed on Ubuntu server
+- Access to Elastic Container Registry (ECR) for pulling images
+- Permissions on the server with sudo access
+
+### MySQL Database Setup:
+1. Update package manager:
+   ```
+   sudo apt update
+   ```
+2. Install MySQL server:
+   ```
+   sudo apt install mysql-server
+   ```
+3. Secure MySQL installation (optional):
+   ```
+   sudo mysql_secure_installation
+   ```
+4. Start MySQL service:
+   ```
+   sudo systemctl start mysql
+   ```
+5. Enable MySQL on startup:
+   ```
+   sudo systemctl enable mysql
+   ```
+6. Access MySQL:
+   ```
+   mysql -u root
+   ```
+7. Create database:
+   ```
+   CREATE DATABASE LMS;
+   ```
+8. Create user for the database:
+   ```
+   CREATE USER 'lms'@'%' IDENTIFIED BY 'password';
+   ```
+9. Grant privileges to the user:
+   ```
+   GRANT ALL PRIVILEGES ON LMS.* TO 'lms'@'%';
+   ```
+10. Flush privileges:
+    ```
+    FLUSH PRIVILEGES;
+    EXIT;
+    ```
+
+### Docker Installation:
+1. Update package manager:
+   ```
+   sudo apt update
+   ```
+2. Install Docker:
+   ```
+   sudo systemctl start docker
+   ```
+3. Enable Docker on startup:
+   ```
+   sudo systemctl enable docker
+   ```
+4. Verify Docker installation:
+   ```
+   docker --version
+   ```
+5. Test Docker:
+   ```
+   sudo docker run hello-world
+   ```
+
+### Application Server Setup and Configuration:
+1. Obtain SSL certificate and private key.
+2. Place the SSL certificate and private key in `nginx/nginx.cert` and `nginx/sssl.key` directories.
+3. Update Dockerfile in the `nginx` folder.
+4. Create `docker-compose.yml` file in the root directory of the application.
+5. Update the `docker-compose.yml` file with necessary configurations.
+6. Deployment Commands:
+   ```
+   sudo docker-compose build
+   sudo docker-compose up -d
+   ```
+
+### Certificate Deployment Guide:
+1. Create `docker-compose-certificate.yml` file.
+2. Update the `docker-compose-certificate.yml` file with necessary configurations.
+3. Deployment Commands:
+   ```
+   sudo docker-compose -f docker-compose-certificate.yml build
+   sudo docker-compose -f docker-compose-certificate.yml up -d
+   ```
+
+### File Server (MinIO) Setup Guide:
+1. Create `docker-compose-minio.yaml` file.
+2. Update the `docker-compose-minio.yaml` file with necessary configurations.
+3. Deployment Commands:
+   ```
+   sudo docker-compose -f docker-compose-minio.yml build
+   sudo docker-compose -f docker-compose-minio.yml up -d
+   ```
+
+### File Server Setup Manual:
+1. Login to the MinIO server and create a bucket named `standalone`.
+2. Set access policies for the bucket.
+3. Create `public` and `private` paths in the `standalone` bucket for storing files.
+4. MinIO setup is complete.
+
+This guide provides a comprehensive approach to deploying a standalone application on a Linux server with MySQL database, Docker, SSL certificate, and MinIO file server setup. Make sure to follow each step carefully for successful deployment.

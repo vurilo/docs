@@ -23,12 +23,12 @@
   ],
   "topbarCtaButton": {
     "name": "Test",
-    "url": "https://dashboard.mintlify.com"
+    "url": "https://vurilo.com"
   },
   "tabs": [
     {
-      "name": "API Reference",
-      "url": "api-reference"
+      "name": "APP Overview",
+      "url": "app-documentation"
     }
   ],
   "anchors": [
@@ -49,32 +49,27 @@
       "pages": [
         "introduction",
         "quickstart",
-        "development"
+        "deployment"
       ]
     },
     {
       "group": "Essentials",
       "pages": [
-        "essentials/markdown",
-        "essentials/code",
-        "essentials/images",
-        "essentials/settings",
-        "essentials/navigation",
-        "essentials/reusable-snippets"
+        "essentials/env"
       ]
     },
     {
-      "group": "API Documentation",
+      "group": "APP Documentation",
       "pages": [
-        "api-reference/introduction"
+        "app-documentation/introduction"
       ]
     },
     {
       "group": "Endpoint Examples",
       "pages": [
-        "api-reference/endpoint/get",
-        "api-reference/endpoint/create",
-        "api-reference/endpoint/delete"
+        "app-documentation/endpoint/get",
+        "app-documentation/endpoint/create",
+        "app-documentation/endpoint/delete"
       ]
     }
   ],
