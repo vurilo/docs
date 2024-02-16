@@ -77,6 +77,14 @@
         "app-documentation/endpoint/create",
         "app-documentation/endpoint/delete"
       ]
+    },
+    {
+      "group": "Superadmin",
+      "pages": [
+        "app-documentation/superadmin/general",
+        "app-documentation/superadmin/create",
+        "app-documentation/superadmin/delete"
+      ]
     }
   ],
   "footerSocials": {
