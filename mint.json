@@ -66,7 +66,8 @@
     {
       "group": "APP Documentation",
       "pages": [
-        "app-documentation/introduction"
+        "app-documentation/introduction",
+        "app-documentation/quick-start"
       ]
     },
     {
