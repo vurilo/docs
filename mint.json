@@ -73,9 +73,9 @@
     {
       "group": "Post deployment",
       "pages": [
-        "post-deployment/superadmin/general",
-        "post-deployment/superadmin/create",
-        "post-deployment/superadmin/delete"
+        "app-documentation/post-deployment/general",
+        "app-documentation/post-deployment/create",
+        "app-documentation/post-deployment/delete"
       ]
     },
     {
