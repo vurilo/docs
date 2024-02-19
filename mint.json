@@ -71,11 +71,11 @@
       ]
     },
     {
-      "group": "Superadmin",
+      "group": "Post deployment",
       "pages": [
-        "app-documentation/superadmin/general",
-        "app-documentation/superadmin/create",
-        "app-documentation/superadmin/delete"
+        "post-deployment/superadmin/general",
+        "post-deployment/superadmin/create",
+        "post-deployment/superadmin/delete"
       ]
     },
     {
