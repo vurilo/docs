@@ -84,16 +84,7 @@
         "app-documentation/training-creation/lessons",
         "app-documentation/training-creation/certificate"
       ]
-    },
-    {
-      "group": "Endpoint Examples",
-      "pages": [
-        "app-documentation/endpoint/get",
-        "app-documentation/endpoint/create",
-        "app-documentation/endpoint/delete"
-      ]
     }
-    
   ],
   "footerSocials": {
     "facebook":"https://www.facebook.com/vuriloapp",
