@@ -81,7 +81,8 @@
       "group": "Training Creation",
       "pages": [
         "app-documentation/training-creation/general-setup",
-        "app-documentation/training-creation/lessons"
+        "app-documentation/training-creation/lessons",
+         "app-documentation/training-creation/certificate"
       ]
     },
     {
