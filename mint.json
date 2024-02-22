@@ -75,7 +75,13 @@
       "pages": [
         "app-documentation/post-deployment/general",
         "app-documentation/post-deployment/create",
-        "app-documentation/post-deployment/delete"
+      ]
+    },
+    {
+      "group": "Training Creation",
+      "pages": [
+        "app-documentation/training-creation/general-setup",
+        "app-documentation/post-deployment/create",
       ]
     },
     {
