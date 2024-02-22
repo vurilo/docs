@@ -80,9 +80,10 @@
     {
       "group": "Training",
       "pages": [
-        "app-documentation/training-creation/general-setup",
-        "app-documentation/training-creation/lessons",
-        "app-documentation/training-creation/certificate"
+        "app-documentation/training/general-setup",
+        "app-documentation/training/lessons",
+        "app-documentation/training/certificate",
+        "app-documentation/training/lesson-stat"
       ]
     }
   ],
