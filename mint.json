@@ -78,7 +78,7 @@
       ]
     },
     {
-      "group": "Training Creation",
+      "group": "Training",
       "pages": [
         "app-documentation/training-creation/general-setup",
         "app-documentation/training-creation/lessons",
