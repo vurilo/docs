@@ -73,8 +73,8 @@
     {
       "group": "Post deployment",
       "pages": [
-        "app-documentation/post-deployment/add-user",
         "app-documentation/post-deployment/general",
+        "app-documentation/post-deployment/add-user",
         "app-documentation/post-deployment/create"
       ]
     },
