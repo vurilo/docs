@@ -1,26 +1,46 @@
 ---
-title: 'General'
-description: 'Description of your new file.'
+title: 'Application Configuration and Credentials Guide'
+description: 'A comprehensive guide for configuring application settings and credentials.'
 ---
 
-Before accessing certain features within the application, users are required to configure essential settings to ensure smooth functionality and enhanced user experience. These mandatory configurations include:
+### Initial Login Credentials:
 
+- **Email:** vuriloapp@gmail.com
+- **Password:** Admin@123
 
-#### **General settings**
-1. Company Logo: Upload your organization's logo to personalize the platform and enhance brand recognition.
-2. Company Information: Fill in essential details such as the company name, address, and contact number to provide users with accurate information about the organization.
-3. Mail Signature: Configure a personalized mail signature to ensure consistency and professionalism in email communications.
+### Changing Login Credentials and Email for Superadmin:
 
-#### **File Storage Configuration:**
-- Users must set up file storage configuration to enable seamless storage and access to files within the application. This involves providing details such as server access keys, bucket names, server URLs, and authentication credentials to establish a connection with the designated file storage system.
+It is crucial to change the initial login credentials, particularly for the superadmin account. Failure to update these credentials may result in missing important emails regarding updates and application logs. Follow these steps to update the login credentials and associated email address for the user:
 
-#### **SMTP Configuration:**
-- Setting up SMTP (Simple Mail Transfer Protocol) configuration is necessary for enabling email communication functionalities within the application. Users need to configure SMTP settings by providing sender email addresses, reply email addresses, SMTP server details, authentication credentials, and port numbers to facilitate the sending and receiving of emails.
+1. Log in using the initial credentials provided.
+2. Navigate to the settings section within the application.
+3. Locate the account settings.
+4. Follow the prompts to update the login credentials and email address for the superadmin account.
+   
+   Note: Ensure SMTP configuration is completed before changing the email address, as failure to do so will result in emails not being sent.
 
-#### **Zoom Settings Configuration:**
-- Configuring Zoom settings is essential for users intending to utilize features like live classes within the application. This involves setting up Zoom-related details such as API keys, API secrets, SDK keys, webhook secrets, and other necessary parameters to integrate Zoom functionality seamlessly.
+### Mandatory Configurations
 
-#### **Zoom License Integration:**
-- In addition to configuring Zoom settings, users must integrate a valid Zoom license into their accounts to access advanced features and functionalities offered by Zoom. Adding a Zoom license enhances the capabilities of the application, particularly for conducting live classes and virtual meetings.res like live classes within the application.
+#### General Settings:
+1. **Company Logo:** Upload your organization's logo to personalize the platform and enhance brand recognition.
+2. **Company Information:** Fill in essential details such as the company name, address, and contact number to provide users with accurate information about the organization.
+3. **Mail Signature:** Configure a personalized mail signature to ensure consistency and professionalism in email communications.
+
+#### File Storage Configuration:
+Users must set up file storage configuration to enable seamless storage and access to files within the application. This involves providing details such as server access keys, bucket names, server URLs, and authentication credentials to establish a connection with the designated file storage system.
+
+#### SMTP Configuration:
+Setting up SMTP (Simple Mail Transfer Protocol) configuration is necessary for enabling email communication functionalities within the application. Configure SMTP settings by providing sender email addresses, reply email addresses, SMTP server details, authentication credentials, and port numbers to facilitate the sending and receiving of emails.
+
+#### Zoom Settings Configuration:
+Configuring Zoom settings is essential for users intending to utilize features like live classes within the application. Set up Zoom-related details such as API keys, API secrets, SDK keys, webhook secrets, and other necessary parameters to integrate Zoom functionality seamlessly.
+
+#### Zoom License Integration:
+In addition to configuring Zoom settings, users must integrate a valid Zoom license into their accounts to access advanced features and functionalities offered by Zoom. Adding a Zoom license enhances the capabilities of the application, particularly for conducting live classes and virtual meetings.
+
+### Optional Configuration
+
+#### OpenAI API Integration:
+If you want to use AI-related features, you need the API key of OpenAI, which should be added in the AI setup and enabled.
 
 By completing these mandatory configurations for file storage, SMTP, Zoom settings, and Zoom license integration, users can ensure the proper functioning of essential features within the application, such as live classes. These configurations lay the foundation for a seamless user experience and enable users to leverage the full potential of the application's capabilities.
