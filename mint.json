@@ -21,10 +21,6 @@
       "url": "mailto:support@vurilo.com"
     }
   ],
-  "topbarCtaButton": {
-    "name": "Open app",
-    "url": "https://vurilo.com"
-  },
   "tabs": [
     {
       "name": "APP Overview",
@@ -32,16 +28,6 @@
     }
   ],
   "anchors": [
-    {
-      "name": "Documentation",
-      "icon": "book-open-cover",
-      "url": "https://docs.vurilo.com/"
-    },
-    {
-      "name": "Blog",
-      "icon": "newspaper",
-      "url": "https://blog.vurilo.com/"
-    },
     {
       "name": "Community",
       "icon": "users",
