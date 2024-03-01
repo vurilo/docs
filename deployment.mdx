@@ -250,7 +250,7 @@ Environment variable:
 "s3:GetBucketLocation"
 ],
 "Resource": [
-"arn:aws:s3:::standalone"
+"arn:aws:s3:::LMS"
 ]
 },
 {
@@ -267,7 +267,7 @@ Environment variable:
 "s3:PutObject"
 ],
 "Resource": [
-"arn:aws:s3:::standalone/private/*"
+"arn:aws:s3:::LMS/private/*"
 ]
 },
 {
@@ -286,7 +286,7 @@ Environment variable:
 "s3:GetObject"
 ],
 "Resource": [
-"arn:aws:s3:::standalone/public/*"
+"arn:aws:s3:::LMS/public/*"
 ]
 }
 ]
@@ -294,5 +294,6 @@ Environment variable:
 ```
 3. Create `public` and `private` paths in the `LMS` bucket for storing files.
 4. MinIO setup is complete.
+5. After seting up the file server, add the access key and the server URL in the application file storage section. To add the configuration, you need to login to the application and navigate to the setings>Admin>filestorage.
 
 This guide provides a comprehensive approach to deploying a LMS application on a Linux server with MySQL database, Docker, SSL certificate, and MinIO file server setup. Make sure to follow each step carefully for successful deployment.
