@@ -3,7 +3,7 @@ title: Deployment
 description: "Deployment Guide"
 ---
 
-This guide provides detailed instructions for deploying a LMS application on a Linux server, including setting up MySQL database, Docker, application server, SSL certificate deployment, and MinIO file server setup. Below is the step-by-step guide:
+This guide provides detailed instructions for deploying a vurilo application on a Linux server, including setting up MySQL database, Docker, application server, SSL certificate deployment, and MinIO file server setup. Below is the step-by-step guide:
 
 ### Prerequisites:
 - MySQL database
@@ -39,15 +39,15 @@ This guide provides detailed instructions for deploying a LMS application on a L
    ```
 7. Create database:
    ```
-   CREATE DATABASE LMS;
+   CREATE DATABASE vurilo;
    ```
 8. Create user for the database:
    ```
-   CREATE USER 'lms'@'%' IDENTIFIED BY 'password';
+   CREATE USER 'vurilo'@'%' IDENTIFIED BY 'password';
    ```
 9. Grant privileges to the user:
    ```
-   GRANT ALL PRIVILEGES ON LMS.* TO 'lms'@'%';
+   GRANT ALL PRIVILEGES ON vurilo.* TO 'vurilo'@'%';
    ```
 10. Flush privileges:
     ```
@@ -230,8 +230,11 @@ Environment variable:
       :9000 at the end or map a new domain with this port.
       3. Verify the site is running or not.
 ### File Server Setup Manual:
-1. Login to the MinIO server and create a bucket named `LMS`.
-2. After creating open detail of that bucket and click on access policy. Select cusom and write below policy:
+1. Login to the MinIO server using the above credentials and create a bucket named `vurilo`.
+![Bucket Creation](images/bucket_create.png)
+![Bucket](images/bucket.png)
+2. After creating open detail of that bucket and click on access policy. Select custom and write below policy:
+![Bucket policy](images/bucket_policy.png)
 ```
 {
 "Version": "2012-10-17",
@@ -250,7 +253,7 @@ Environment variable:
 "s3:GetBucketLocation"
 ],
 "Resource": [
-"arn:aws:s3:::LMS"
+"arn:aws:s3:::vurilo"
 ]
 },
 {
@@ -267,7 +270,7 @@ Environment variable:
 "s3:PutObject"
 ],
 "Resource": [
-"arn:aws:s3:::LMS/private/*"
+"arn:aws:s3:::vurilo/private/*"
 ]
 },
 {
@@ -286,14 +289,14 @@ Environment variable:
 "s3:GetObject"
 ],
 "Resource": [
-"arn:aws:s3:::LMS/public/*"
+"arn:aws:s3:::vurilo/public/*"
 ]
 }
 ]
 }
 ```
-3. Create `public` and `private` paths in the `LMS` bucket for storing files.
+3. Create `public` and `private` paths in the `vurilo` bucket for storing files.
 4. MinIO setup is complete.
-5. After seting up the file server, add the access key and the server URL in the application file storage section. To add the configuration, you need to login to the application and navigate to the setings>Admin>filestorage.
+5. After setting up the file server, add the access key and the server URL in the application file storage section. To add the configuration, you need to login to the application and navigate to the setings>Admin>filestorage.
 
-This guide provides a comprehensive approach to deploying a LMS application on a Linux server with MySQL database, Docker, SSL certificate, and MinIO file server setup. Make sure to follow each step carefully for successful deployment.
+This guide provides a comprehensive approach to deploying a vurilo application on a Linux server with MySQL database, Docker, SSL certificate, and MinIO file server setup. Make sure to follow each step carefully for successful deployment.
