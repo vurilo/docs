@@ -17,7 +17,7 @@ Before you begin, make sure you have the following prerequisites installed and c
 1. **Pull Docker Image:**
    Pull the Docker image from Docker Hub using the following command:
    ```
-   sudo docker pull vurilo/tmis:latest
+   sudo docker pull academykit/academy:latest
    ```
 
 2. **Set Up Environment Variables:**
@@ -26,9 +26,9 @@ Before you begin, make sure you have the following prerequisites installed and c
 3. **Start Docker Container:**
    Run the following command to start the Docker container with your application:
    ```
-   sudo docker run -d --name tmis_container -p 80:80 vurilo/tmis:latest
+   sudo docker run -d --name lms_container -p 80:80 academykit/academy:latest
    ```
-   Replace `tmis_container` with a name for your container.
+   Replace `lms_container` with a name for your container.
    
 4. **Verify Deployment:**
    Once the container is up and running, open a web browser and navigate to your server's IP address or domain name. You should see your application up and running.

@@ -18,7 +18,7 @@
   "topbarLinks": [
     {
       "name": "Support",
-      "url": "mailto:support@vurilo.com"
+      "url": "mailto:hello@academykit.co"
     }
   ],
   "tabs": [
@@ -79,7 +79,7 @@
     "facebook":"https://www.facebook.com/vuriloapp",
     "instagram": "https://www.instagram.com/vuriloapp/",
     "youtube":"https://www.youtube.com/@VuriloApp",
-    "github": "https://github.com/vurilo",
+    "github": "https://github.com/academykit",
     "linkedin": "https://www.linkedin.com/company/vuriloapp/",
     "discord": "https://discord.gg/ZQn6zYRt"
   }

@@ -3,7 +3,7 @@ title: Deployment
 description: "Deployment Guide"
 ---
 
-This guide provides detailed instructions for deploying a vurilo application on a Linux server, including setting up MySQL database, Docker, application server, SSL certificate deployment, and MinIO file server setup. Below is the step-by-step guide:
+This guide provides detailed instructions for deploying a academykit application on a Linux server, including setting up MySQL database, Docker, application server, SSL certificate deployment, and MinIO file server setup. Below is the step-by-step guide:
 
 ### Prerequisites:
 - MySQL database
@@ -39,15 +39,15 @@ This guide provides detailed instructions for deploying a vurilo application on 
    ```
 7. Create database:
    ```
-   CREATE DATABASE vurilo;
+   CREATE DATABASE academykit;
    ```
 8. Create user for the database:
    ```
-   CREATE USER 'vurilo'@'%' IDENTIFIED BY 'password';
+   CREATE USER 'academykit'@'%' IDENTIFIED BY 'password';
    ```
 9. Grant privileges to the user:
    ```
-   GRANT ALL PRIVILEGES ON vurilo.* TO 'vurilo'@'%';
+   GRANT ALL PRIVILEGES ON academykit.* TO 'academykit'@'%';
    ```
 10. Flush privileges:
     ```
@@ -230,7 +230,7 @@ Environment variable:
       :9000 at the end or map a new domain with this port.
       3. Verify the site is running or not.
 ### File Server Setup Manual:
-1. Login to the MinIO server using the above credentials and create a bucket named `vurilo`.
+1. Login to the MinIO server using the above credentials and create a bucket named `academykit`.
 
 2. After creating open detail of that bucket and click on access policy. Select custom and write below policy:
 
@@ -252,7 +252,7 @@ Environment variable:
 "s3:GetBucketLocation"
 ],
 "Resource": [
-"arn:aws:s3:::vurilo"
+"arn:aws:s3:::academykit"
 ]
 },
 {
@@ -269,7 +269,7 @@ Environment variable:
 "s3:PutObject"
 ],
 "Resource": [
-"arn:aws:s3:::vurilo/private/*"
+"arn:aws:s3:::academykit/private/*"
 ]
 },
 {
@@ -288,14 +288,14 @@ Environment variable:
 "s3:GetObject"
 ],
 "Resource": [
-"arn:aws:s3:::vurilo/public/*"
+"arn:aws:s3:::academykit/public/*"
 ]
 }
 ]
 }
 ```
-3. Create `public` and `private` paths in the `vurilo` bucket for storing files.
+3. Create `public` and `private` paths in the `academykit` bucket for storing files.
 4. MinIO setup is complete.
 5. After setting up the file server, add the access key and the server URL in the application file storage section. To add the configuration, you need to login to the application and navigate to the setings>Admin>filestorage and change to the server.
 
-This guide provides a comprehensive approach to deploying a vurilo application on a Linux server with MySQL database, Docker, SSL certificate, and MinIO file server setup. Make sure to follow each step carefully for successful deployment.
+This guide provides a comprehensive approach to deploying a academykit application on a Linux server with MySQL database, Docker, SSL certificate, and MinIO file server setup. Make sure to follow each step carefully for successful deployment.
