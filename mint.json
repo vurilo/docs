@@ -76,11 +76,8 @@
     }
   ],
   "footerSocials": {
-    "facebook":"https://www.facebook.com/vuriloapp",
-    "instagram": "https://www.instagram.com/vuriloapp/",
-    "youtube":"https://www.youtube.com/@VuriloApp",
     "github": "https://github.com/academykit",
-    "linkedin": "https://www.linkedin.com/company/vuriloapp/",
+    "linkedin": "https://www.linkedin.com/showcase/academy-kit",
     "discord": "https://discord.gg/xq3H2hgwXv"
   }
 }
