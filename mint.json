@@ -7,7 +7,7 @@
   },
   "favicon": "/favicon.svg",
   "colors": {
-    "primary": "#0C0E41",
+    "primary": "#85c226",
     "light": "#85C226",
     "dark": "#0C0E41",
     "anchors": {
@@ -37,16 +37,14 @@
   "navigation": [
     {
       "group": "Get Started",
-      "pages": [
-        "introduction",
-        "quickstart",
-        "deployment"
-      ]
+      "pages": ["introduction"]
     },
     {
-      "group": "Essentials",
+      "group": "Self Hosting AcademyKit",
       "pages": [
-        "essentials/env"
+        "self-hosting-academykit/introduction",
+        "self-hosting-academykit/deploy-with-docker",
+        "self-hosting-academykit/configuration"
       ]
     },
     {
@@ -59,7 +57,6 @@
     {
       "group": "Post deployment",
       "pages": [
-        "app-documentation/post-deployment/general",
         "app-documentation/post-deployment/add-user",
         "app-documentation/post-deployment/create"
       ]

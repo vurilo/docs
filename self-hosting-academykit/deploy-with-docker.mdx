@@ -1,0 +1,144 @@
+---
+title: "Deploy with Docker"
+description: "Learn how to deploy AcademyKit with Docker"
+icon: "docker"
+---
+
+Docker compose is the easiest way to get started with self-hosted AcademyKit. However if you have database on separately installed, then you might want to use the docker run directly.
+
+### Before you begin
+
+You need the following installed in your system:
+
+- [Docker](https://docs.docker.com/engine/install/)
+- [docker-compose](https://docs.docker.com/compose/install/) if you want to deploy with docker compose
+
+<AccordionGroup>
+<Accordion title="Deploy with Docker Run">
+
+<AccordionGroup>
+<Accordion title="With Separate database server">
+
+Prepare the connection string to database as below format
+
+`Server={serverAddress};Database={dbName};User={dbUsername};Password={dbPassword};Convert Zero Datetime=True;`
+
+and replace `{connectionString}` in below command
+
+```bash
+docker run --name academykit \
+-e ConnectionStrings__DefaultConnection="{connectionString}" \
+-e JWT__DurationInMinutes=60 \
+-e ConnectionStrings__HangfireConnection="{connectionString}Allow User Variables=True;" \
+-e Hangfire__User=sysAdmin \
+-e Hangfire__Password=sysAdminPassword \
+-e AppUrls__App=http://localhost:80 \
+-p 80:80 \
+--restart always \
+academykit/academy:main
+```
+
+Now visit [http://localhost:80](http://localhost:80/) to start using AcademyKit.
+
+</Accordion>
+<Accordion title="Setup both database and app on same machine">
+<Warning>This is not recommended for production usage</Warning>
+
+1. Create a docker network
+
+```bash
+docker network create academy-kit-network
+```
+
+2. Run MySQL
+   Change the password, username and container name as required
+
+```bash
+docker run --name academykit-db \
+  --network academy-kit-network \
+  -e MYSQL_ROOT_PASSWORD=password \
+  -e MYSQL_USER=academykit \
+  -e MYSQL_PASSWORD=password \
+  -e MYSQL_DATABASE=academykit \
+  -p 3306:3306 \
+  --restart always \
+  mysql:8.0.33
+```
+
+3. Run the academyKit
+   Change the environment variables as required.
+
+```bash
+docker run --name academykit \
+--network academy-kit-network \
+-e ConnectionStrings__DefaultConnection="Server=academykit-db;Database=academykit;User=academykit;Password=password;Convert Zero Datetime=True;" \
+-e JWT__DurationInMinutes=60 \
+-e ConnectionStrings__HangfireConnection="Server=academykit-db;Database=academykit;User=academykit;Password=password;Convert Zero Datetime=True;Allow User Variables=True;" \
+-e Hangfire__User=sysAdmin \
+-e Hangfire__Password=pwadfssw0rd \
+-e AppUrls__App=http://localhost:80 \
+-p 80:80 \
+--restart always \
+academykit/academy:main
+```
+
+Now visit [http://localhost:80](http://localhost:80/) to start using AcademyKit.
+
+</Accordion>
+</AccordionGroup>
+</Accordion>
+<Accordion title="Deploy With Docker Compose">
+Docker compose is the easiest way to get started with self-hosted AcademyKit.
+
+### Quick Start
+
+1. Create `docker-compose.yml` inside a folder as below:
+
+   ```yaml docker-compose.yml
+   version: "3.9"
+
+   services:
+   academykit-db:
+     image: mysql:8.0.33
+     container_name: academykit-db
+     environment:
+     MYSQL_ROOT_PASSWORD: password
+     MYSQL_USER: academykit
+     MYSQL_PASSWORD: password
+     MYSQL_DATABASE: academykit
+     ports:
+       - "3306:3306"
+     restart: always
+
+   academykit:
+     image: academykit/academy:main
+     container_name: academykit
+     environment:
+     ConnectionStrings__DefaultConnection: "Server=academykit-db;Database=academykit;User=academykit;Password=password;Convert Zero Datetime=True;"
+     JWT__DurationInMinutes: 60
+     ConnectionStrings__HangfireConnection: "Server=academykit-db;Database=academykit;User=academykit;Password=password;Convert Zero Datetime=True;Allow User Variables=True;"
+     Hangfire__User: sysAdmin
+     Hangfire__Password: pwadfssw0rd
+     AppUrls__App: http://localhost:80
+     ports:
+       - "80:80"
+     restart: always
+   ```
+
+2. Run the docker compose
+
+   ```bash
+   docker compose up
+   ```
+
+Now visit [http://localhost:80](http://localhost:80/) to start using AcademyKit.
+
+</Accordion>
+</AccordionGroup>
+<Card
+  title="Application Configuration"
+  icon="gears"
+  href="/self-hosting-academykit/configuration"
+>
+  Once app is running, let's go the configure it.
+</Card>

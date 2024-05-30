@@ -1,0 +1,51 @@
+---
+title: "Introduction"
+description: ""
+icon: "code"
+---
+
+Self-hosting AcademyKit involves setting up and maintaining your communication infrastructure using your own servers.
+
+<Note>
+  If you require guidance on setting up a production-scale configuration,
+  official IaaS recommendations, please don't hesitate to [contact our
+  team](https://www.academykit.co/request-demo?utm_campaign=academykitDocs&utm_content=self-hosting-introduction).
+  They can provide assistance regarding enterprise edition licenses or
+  cloud-prem deployment to meet your specific needs.
+</Note>
+
+## Prerequisites:
+
+- MySQL database
+- Ubuntu 20.04 (server)
+- Docker installed on Ubuntu server
+- Object Storage (to store files & videos)
+- SMTP Services
+- Zoom Account (to setup live class)
+
+## System Recommendations
+
+This page includes information about the minimum requirements you need to install and use self-managed
+
+### CPU
+
+CPU requirements are dependent on the number of users, volume of trainings and expected workload.
+
+- 4 cores is recommended minimum number of cores and supports around 100 users simultaneously.
+
+### Memory
+
+Memory requirements are dependent on the number of users, volume of trainings and expected workload.
+
+- 8 GB RAM is the required minimum memory size and supports up to 100 users
+
+### MySQL server
+
+The server running MySQL should have at least 5-10 GB of storage available, though the exact requirements depend on the number of organizations.
+
+The minimum MySQL version should be >= v8.0.33
+
+<Note>
+  Note that these specifications are subject to your requirements, the scale of
+  your operations, and should be adjusted as needed.
+</Note>
