@@ -95,35 +95,43 @@ Docker compose is the easiest way to get started with self-hosted AcademyKit.
 1. Create `docker-compose.yml` inside a folder as below:
 
    ```yaml docker-compose.yml
-   version: "3.9"
+    version: "3.9"
+ 
+    services:
+      academykit-db:
+        image: mysql:8.0.33
+        container_name: academykit-db
+        environment:
+          MYSQL_ROOT_PASSWORD: password
+          MYSQL_USER: academykit
+          MYSQL_PASSWORD: password
+          MYSQL_DATABASE: academykit
+        ports:
+          - "3306:3306"
+        restart: always
+        volumes:
+          - academykit-db-data:/var/lib/mysql
+    
+      academykit:
+        image: academykit/academy:main
+        container_name: academykit
+        environment:
+          ConnectionStrings__DefaultConnection: "Server=academykit-db;Database=academykit;User=academykit;Password=password;Convert Zero Datetime=True;"
+          JWT__DurationInMinutes: "60"
+          ConnectionStrings__HangfireConnection: "Server=academykit-db;Database=academykit;User=academykit;Password=password;Convert Zero Datetime=True;Allow User Variables=True;"
+          Hangfire__User: "sysAdmin"
+          Hangfire__Password: "pwadfssw0rd"
+          AppUrls__App: "http://localhost:80"
+        ports:
+          - "80:80"
+        restart: always
+        depends_on:
+          - academykit-db
+    
+    volumes:
+      academykit-db-data:
 
-   services:
-   academykit-db:
-     image: mysql:8.0.33
-     container_name: academykit-db
-     environment:
-     MYSQL_ROOT_PASSWORD: password
-     MYSQL_USER: academykit
-     MYSQL_PASSWORD: password
-     MYSQL_DATABASE: academykit
-     ports:
-       - "3306:3306"
-     restart: always
-
-   academykit:
-     image: academykit/academy:main
-     container_name: academykit
-     environment:
-     ConnectionStrings__DefaultConnection: "Server=academykit-db;Database=academykit;User=academykit;Password=password;Convert Zero Datetime=True;"
-     JWT__DurationInMinutes: 60
-     ConnectionStrings__HangfireConnection: "Server=academykit-db;Database=academykit;User=academykit;Password=password;Convert Zero Datetime=True;Allow User Variables=True;"
-     Hangfire__User: sysAdmin
-     Hangfire__Password: pwadfssw0rd
-     AppUrls__App: http://localhost:80
-     ports:
-       - "80:80"
-     restart: always
-   ```
+```
 
 2. Run the docker compose
 
