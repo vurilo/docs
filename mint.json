@@ -1,10 +1,13 @@
 {
   "$schema": "https://mintlify.com/schema.json",
-  "name": "Documentation",
+  "name": "Academykit.co",
   "logo": {
     "dark": "/logo/dark.svg",
     "light": "/logo/light.svg"
   },
+    "api": {
+      "baseUrl": "https://try.academykit.co"
+      },
   "favicon": "/favicon.svg",
   "colors": {
     "primary": "#85c226",
@@ -25,6 +28,10 @@
     {
       "name": "APP Overview",
       "url": "app-documentation"
+    },
+    {
+      "name": "API Reference",
+      "url":"api-reference"
     }
   ],
   "anchors": [
@@ -70,8 +77,433 @@
         "app-documentation/training/lesson-stat",
         "app-documentation/training/questions" 
       ]
+    },
+    {
+      "group": "API Reference",
+      "pages": [
+        "api-reference/introduction"
+      ]
+    },
+    {
+      "group": "Account",
+      "pages": [
+        "api-reference/account/get-apiaccount",
+        "api-reference/account/post-apiaccountlogin",
+        "api-reference/account/post-apiaccountlogout",
+        "api-reference/account/post-apiaccountforgotpassword",
+        "api-reference/account/post-apiaccountverifyresettoken",
+        "api-reference/account/post-apiaccountresetpassword",
+        "api-reference/account/post-apiaccountrefreshtoken",
+        "api-reference/account/post-apiaccountchangepassword"
+      ]
+    },
+    {
+      "group": "AIKey",
+      "pages": [
+        "api-reference/aikey/get-apiaikey",
+        "api-reference/aikey/put-apiaikey"
+      ]
+    },
+    {
+      "group": "AITrainingGenerator",
+      "pages": [
+        "api-reference/aitraininggenerator/get-apiaitraininggenerator"
+      ]
+    },
+    {
+      "group": "Assessment",
+      "pages": [
+        "api-reference/assessment/get-apiassessment",
+        "api-reference/assessment/post-apiassessment",
+        "api-reference/assessment/patch-apiassessmentstatus",
+        "api-reference/assessment/get-apiassessment-1",
+        "api-reference/assessment/put-apiassessment",
+        "api-reference/assessment/delete-apiassessment"
+      ]
+    },
+    {
+      "group": "AssessmentExam",
+      "pages": [
+        "api-reference/assessmentexam/post-apiassessmentexam-answersubmission",
+        "api-reference/assessmentexam/get-apiassessmentexam-getresults",
+        "api-reference/assessmentexam/get-apiassessmentexam-getstudentresults",
+        "api-reference/assessmentexam/get-apiassessmentexam-getresultdetail-detail",
+        "api-reference/assessmentexam/get-apiassessmentexam-getstudentresults-export"
+      ]
+    },
+    {
+      "group": "AssessmentQuestion",
+      "pages": [
+        "api-reference/assessmentquestion/get-apiassessmentquestion",
+        "api-reference/assessmentquestion/get-apiassessmentquestion-1",
+        "api-reference/assessmentquestion/put-apiassessmentquestion",
+        "api-reference/assessmentquestion/post-apiassessmentquestion",
+        "api-reference/assessmentquestion/delete-apiassessmentquestion",
+        "api-reference/assessmentquestion/get-apiassessmentquestion-examquestion"
+      ]
+    },
+    {
+      "group": "Assignment",
+      "pages": [
+        "api-reference/assignment/get-apiassignment",
+        "api-reference/assignment/post-apiassignment",
+        "api-reference/assignment/get-apiassignment-1",
+        "api-reference/assignment/put-apiassignment",
+        "api-reference/assignment/delete-apiassignment",
+        "api-reference/assignment/post-apiassignment-submissions",
+        "api-reference/assignment/get-apiassignment-user",
+        "api-reference/assignment/post-apiassignment-review",
+        "api-reference/assignment/put-apiassignment-review",
+        "api-reference/assignment/delete-apiassignment-review",
+        "api-reference/assignment/get-apiassignment-assignmentexport",
+        "api-reference/assignment/get-apiassignment-assignmentindividualexport"
+      ]
+    },
+    {
+      "group": "Certificate",
+      "pages": [
+        "api-reference/certificate/get-apicourse-certificatedetail",
+        "api-reference/certificate/post-apicourse-certificate",
+        "api-reference/certificate/post-apicourse-certificateissue"
+      ]
+    },
+    {
+      "group": "Comment",
+      "pages": [
+        "api-reference/comment/get-apicourse-comments",
+        "api-reference/comment/post-apicourse-comments",
+        "api-reference/comment/get-apicourse-comments-1",
+        "api-reference/comment/put-apicourse-comments",
+        "api-reference/comment/delete-apicourse-comments",
+        "api-reference/comment/post-apicourse-comments-commentreply",
+        "api-reference/comment/put-apicourse-comments-commentreply",
+        "api-reference/comment/delete-apicourse-comments-commentreply"
+      ]
+    },
+    {
+      "group": "Course",
+      "pages": [
+        "api-reference/course/get-apicourse",
+        "api-reference/course/post-apicourse",
+        "api-reference/course/get-apicourse-1",
+        "api-reference/course/put-apicourse",
+        "api-reference/course/delete-apicourse",
+        "api-reference/course/patch-apicourse-updatecourse",
+        "api-reference/course/patch-apicoursestatus",
+        "api-reference/course/post-apicourse-enroll",
+        "api-reference/course/get-apicourse-lessonstatistics",
+        "api-reference/course/get-apicourse-statistics",
+        "api-reference/course/get-apicourse-lessonstatistics-1",
+        "api-reference/course/get-apicourse-lessonstatistics-summary",
+        "api-reference/course/get-apicourse-lessonstatistics-submission",
+        "api-reference/course/get-apicourse-lessonstatistics-assignmentsummary",
+        "api-reference/course/get-apicourse-lessonstatistics-assignmentsubmission",
+        "api-reference/course/get-apicourse-studentstatistics",
+        "api-reference/course/get-apicourse-studentstatistics-1",
+        "api-reference/course/get-apicourseuser",
+        "api-reference/course/get-apicourse-lessonstatistics-export",
+        "api-reference/course/get-apicourse-lessonstatistics-exportsubmission"
+      ]
+    },
+    {
+      "group": "CourseTeacher",
+      "pages": [
+        "api-reference/courseteacher/get-apicourseteacher",
+        "api-reference/courseteacher/post-apicourseteacher",
+        "api-reference/courseteacher/delete-apicourseteacher"
+      ]
+    },
+    {
+      "group": "Dashboard",
+      "pages": [
+        "api-reference/dashboard/get-apidashboard",
+        "api-reference/dashboard/get-apidashboardcourse",
+        "api-reference/dashboard/get-apidashboardupcominglesson"
+      ]
+    },
+    {
+      "group": "Department",
+      "pages": [
+        "api-reference/department/get-apidepartment",
+        "api-reference/department/post-apidepartment",
+        "api-reference/department/get-apidepartment-1",
+        "api-reference/department/put-apidepartment",
+        "api-reference/department/delete-apidepartment",
+        "api-reference/department/get-apidepartment-identity",
+        "api-reference/department/patch-apidepartment-status",
+        "api-reference/department/get-apidepartment-users"
+      ]
+    },
+    {
+      "group": "Enrollment",
+      "pages": [
+        "api-reference/enrollment/post-apienrollmentenrollment",
+        "api-reference/enrollment/get-apienrollmentuser"
+      ]
+    },
+    {
+      "group": "ExternalCertificate",
+      "pages": [
+        "api-reference/externalcertificate/get-apicertificateexternal",
+        "api-reference/externalcertificate/post-apicertificateexternal",
+        "api-reference/externalcertificate/put-apicertificate-external",
+        "api-reference/externalcertificate/delete-apicertificate-external",
+        "api-reference/externalcertificate/get-apicertificateinternal",
+        "api-reference/externalcertificate/get-apicertificate",
+        "api-reference/externalcertificate/patch-apicertificate-verify",
+        "api-reference/externalcertificate/get-apicertificateexternal-1",
+        "api-reference/externalcertificate/get-apicertificatereview"
+      ]
+    },
+    {
+      "group": "Feedback",
+      "pages": [
+        "api-reference/feedback/get-apifeedback",
+        "api-reference/feedback/post-apifeedback",
+        "api-reference/feedback/get-apifeedback-1",
+        "api-reference/feedback/put-apifeedback",
+        "api-reference/feedback/delete-apifeedback",
+        "api-reference/feedback/post-apifeedback-submissions",
+        "api-reference/feedback/get-apifeedback-users",
+        "api-reference/feedback/get-apifeedback-export",
+        "api-reference/feedback/get-apifeedback-chart"
+      ]
+    },
+    {
+      "group": "Group",
+      "pages": [
+        "api-reference/group/get-apigroup",
+        "api-reference/group/post-apigroup",
+        "api-reference/group/get-apigroup-1",
+        "api-reference/group/put-apigroup",
+        "api-reference/group/delete-apigroup",
+        "api-reference/group/get-apigroup-members",
+        "api-reference/group/get-apigroup-notmembers",
+        "api-reference/group/post-apigroup-addmember",
+        "api-reference/group/patch-apigroup-status",
+        "api-reference/group/delete-apigroup-removemember",
+        "api-reference/group/get-apigroup-courses",
+        "api-reference/group/post-apigroupfile",
+        "api-reference/group/get-apigroupfiles",
+        "api-reference/group/delete-apigroup-files"
+      ]
+    },
+    {
+      "group": "Lesson",
+      "pages": [
+        "api-reference/lesson/get-apicourse-lesson",
+        "api-reference/lesson/post-apicourse-lesson",
+        "api-reference/lesson/get-apicourse-lessondetail",
+        "api-reference/lesson/put-apicourse-lessonreorder",
+        "api-reference/lesson/put-apicourse-lesson",
+        "api-reference/lesson/delete-apicourse-lesson",
+        "api-reference/lesson/put-apicourse-lesson-updateshuffle",
+        "api-reference/lesson/get-apicourse-lesson-getshuffle",
+        "api-reference/lesson/get-apicourse-lesson-join",
+        "api-reference/lesson/get-apicourse-lesson-meetingreport",
+        "api-reference/lesson/post-apicourse-lessonreorder"
+      ]
+    },
+    {
+      "group": "Level",
+      "pages": [
+        "api-reference/level/get-apilevel",
+        "api-reference/level/post-apilevel",
+        "api-reference/level/put-apilevel",
+        "api-reference/level/delete-apilevel"
+      ]
+    },
+    {
+      "group": "MailNotification",
+      "pages": [
+        "api-reference/mailnotification/get-apimailnotification",
+        "api-reference/mailnotification/post-apimailnotification",
+        "api-reference/mailnotification/put-apimailnotification",
+        "api-reference/mailnotification/delete-apimailnotification",
+        "api-reference/mailnotification/get-apimailnotification-1",
+        "api-reference/mailnotification/patch-apimailnotification-checksendemail"
+      ]
+    },
+    {
+      "group": "Media",
+      "pages": [
+        "api-reference/media/get-apimediasetting",
+        "api-reference/media/put-apimediasetting",
+        "api-reference/media/get-apimediafile",
+        "api-reference/media/post-apimediafile"
+      ]
+    },
+    {
+      "group": "PhysicalLesson",
+      "pages": [
+        "api-reference/physicallesson/post-apiphysicallessonattendance",
+        "api-reference/physicallesson/post-apiphysicallessonreview"
+      ]
+    },
+    {
+      "group": "Question",
+      "pages": [
+        "api-reference/question/get-apiquestionpool-question",
+        "api-reference/question/post-apiquestionpool-question",
+        "api-reference/question/get-apiquestionpool-question-1",
+        "api-reference/question/put-apiquestionpool-question",
+        "api-reference/question/delete-apiquestionpool-question"
+      ]
+    },
+    {
+      "group": "QuestionAddAi",
+      "pages": [
+        "api-reference/questionaddai/post-apiquestionaddai"
+      ]
+    },
+    {
+      "group": "QuestionPool",
+      "pages": [
+        "api-reference/questionpool/get-apiquestionpool",
+        "api-reference/questionpool/post-apiquestionpool",
+        "api-reference/questionpool/get-apiquestionpool-1",
+        "api-reference/questionpool/put-apiquestionpool",
+        "api-reference/questionpool/delete-apiquestionpool",
+        "api-reference/questionpool/post-apiquestionpoolreorder"
+      ]
+    },
+    {
+      "group": "QuestionPoolTeacher",
+      "pages": [
+        "api-reference/questionpoolteacher/get-apiquestionpoolteacher",
+        "api-reference/questionpoolteacher/post-apiquestionpoolteacher",
+        "api-reference/questionpoolteacher/patch-apiquestionpoolteacher-status",
+        "api-reference/questionpoolteacher/delete-apiquestionpoolteacher"
+      ]
+    },
+    {
+      "group": "QuestionSet",
+      "pages": [
+        "api-reference/questionset/get-apiquestionset",
+        "api-reference/questionset/post-apiquestionset-addquestion",
+        "api-reference/questionset/get-apiquestionset-questions",
+        "api-reference/questionset/post-apiquestionset-startexam",
+        "api-reference/questionset/post-apiquestionset-submission"
+      ]
+    },
+    {
+      "group": "QuestionSetResult",
+      "pages": [
+        "api-reference/questionsetresult/get-apiquestionset-results",
+        "api-reference/questionsetresult/get-apiquestionset-results-1",
+        "api-reference/questionsetresult/get-apiquestionset-results-detail"
+      ]
+    },
+    {
+      "group": "Section",
+      "pages": [
+        "api-reference/section/get-apicourse-section",
+        "api-reference/section/post-apicourse-section",
+        "api-reference/section/get-apicourse-section-1",
+        "api-reference/section/delete-apicourse-section",
+        "api-reference/section/patch-apicourse-section",
+        "api-reference/section/put-apicourse-sectionreorder"
+      ]
+    },
+    {
+      "group": "ServerLog",
+      "pages": [
+        "api-reference/serverlog/get-apiserverloglogs",
+        "api-reference/serverlog/get-apiserverlog"
+      ]
+    },
+    {
+      "group": "Settings",
+      "pages": [
+        "api-reference/settings/get-apiadminsettings",
+        "api-reference/settings/get-apiadminsettingscompany",
+        "api-reference/settings/put-apiadminsettings",
+        "api-reference/settings/get-apiadminsettingszoom",
+        "api-reference/settings/put-apiadminsettingszoom",
+        "api-reference/settings/get-apiadminsettingssmtp",
+        "api-reference/settings/put-apiadminsettingssmtp"
+      ]
+    },
+    {
+      "group": "Signature",
+      "pages": [
+        "api-reference/signature/get-apicourse-signature",
+        "api-reference/signature/post-apicourse-signature",
+        "api-reference/signature/put-apicourse-signature",
+        "api-reference/signature/delete-apicourse-signature"
+      ]
+    },
+    {
+      "group": "Skills",
+      "pages": [
+        "api-reference/skills/get-apiskills",
+        "api-reference/skills/post-apiskills",
+        "api-reference/skills/put-apiskills",
+        "api-reference/skills/delete-apiskills"
+      ]
+    },
+    {
+      "group": "Tag",
+      "pages": [
+        "api-reference/tag/get-apitag",
+        "api-reference/tag/post-apitag",
+        "api-reference/tag/put-apitag",
+        "api-reference/tag/delete-apitag"
+      ]
+    },
+    {
+      "group": "User",
+      "pages": [
+        "api-reference/user/get-apiuser",
+        "api-reference/user/post-apiuser",
+        "api-reference/user/get-apiuser-1",
+        "api-reference/user/put-apiuser",
+        "api-reference/user/get-apiuser-",
+        "api-reference/user/get-apiusertrainer",
+        "api-reference/user/post-apiuserbulkuser",
+        "api-reference/user/put-apiuserchangeemailrequest",
+        "api-reference/user/patch-apiuser-resendemail",
+        "api-reference/user/put-apiuserresendchangeemailrequest",
+        "api-reference/user/get-apiuserverifychangeemail",
+        "api-reference/user/get-apiusersamplefile"
+      ]
+    },
+    {
+      "group": "Utility",
+      "pages": [
+        "api-reference/utility/get-apiutilityogimage",
+        "api-reference/utility/get-apiutilitycertificate"
+      ]
+    },
+    {
+      "group": "WatchHistory",
+      "pages": [
+        "api-reference/watchhistory/post-apiwatchhistory",
+        "api-reference/watchhistory/patch-apiwatchhistorypass"
+      ]
+    },
+    {
+      "group": "Webhook",
+      "pages": [
+        "api-reference/webhook/post-apiwebhookzoomrecording",
+        "api-reference/webhook/post-apiwebhookjoinmeeting",
+        "api-reference/webhook/post-apiwebhookleftmeeting"
+      ]
+    },
+    {
+      "group": "ZoomLicense",
+      "pages": [
+        "api-reference/zoomlicense/get-apizoomlicense",
+        "api-reference/zoomlicense/post-apizoomlicense",
+        "api-reference/zoomlicense/get-apizoomlicense-1",
+        "api-reference/zoomlicense/put-apizoomlicense",
+        "api-reference/zoomlicense/delete-apizoomlicense",
+        "api-reference/zoomlicense/patch-apizoomlicense-status",
+        "api-reference/zoomlicense/get-apizoomlicenseactive"
+      ]
     }
   ],
+  "openapi": "/openapi-with-code-samples.yaml",
   "footerSocials": {
     "github": "https://github.com/academykit",
     "linkedin": "https://www.linkedin.com/showcase/academy-kit",
