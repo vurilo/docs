@@ -1,0 +1,31 @@
+---
+title: "API Keys"
+og:title: "How to get my Academykit.co API key?"
+description: "Learn how to get your Academykit.co API key."
+icon: key
+---
+
+API keys on the Academykit platform allow other applications to interact with the Academykit programmatically. This capability is essential for integrating Academykit with various tools and services. Currently, only Super Admins have the privilege to create API keys. Each API key is associated with the user who created it and has full access to the API endpoints on behalf of that user.
+
+## How to create an API key
+
+Follow these steps to create an API key:
+
+<Steps>
+    <Step title="Go to your Application">
+        Go to **Settings > API Keys** in your Academykit dashboard.
+    </Step>
+
+    <Step title="Create an API Key">
+        Click on the "Add API Key" button, enter a name to distinguish the key, and then click on "Confirm."
+    </Step>
+
+    <Step title="Use Your API Key">
+        Once the key is generated, it will be displayed. You can copy the key by clicking on the copy icon.
+    </Step>
+</Steps>
+
+Now you can use the API key in your requests:
+
+```bash
+X-API-Key: <API-Key>

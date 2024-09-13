@@ -1,0 +1,45 @@
+---
+title: "Errors"
+"og:title": "Academykit.co API returns machine readable error codes, human readable error messages and a link to the docs for more information"
+description: "Troubleshoot problems with this comprehensive breakdown of all error codes."
+icon: bug
+---
+
+Academykit.co API returns machine readable error codes, human readable error messages and a link to the docs for more information.
+Here is how an error response looks like:
+
+```json
+{
+  HTTP Status: 400
+
+    {
+    "message": "The requested resource was not found.",
+    }
+}
+```
+## Status Codes
+Here’s a breakdown of the most frequent status codes returned by the Academykit.co API, along with their explanations and solutions:
+
+### `400: Bad Request`
+- **Problem:** The request is malformed, either missing required fields, using wrong datatypes, or being syntactically incorrect.
+- **Solution:** Check the request and make sure it is properly formatted.
+
+### `401: Unauthorized`
+- **Problem:** The request has not been applied because it lacks valid authentication credentials for the target resource.
+- **Solution:** Make sure you are using the correct API key or access token.
+
+### `403: Forbidden`
+- **Problem:** The server understood the request, but is refusing to fulfill it because the client lacks proper permission.
+- **Solution:** Make sure you have the necessary permissions to access the resource.
+
+### `404: Not Found`
+- **Problem:** The server has not found anything matching the request URI.
+- **Solution:** Check the request and make sure the resource exists.
+
+### `409: Too Many Requests`
+- **Problem:** The API key is calling APIs too frequently.
+- **Solution:** Slow down the rate to call APIs with the API key. You can refer to the returned value in `X-RateLimit-Limit`, `X-RateLimit-Remaining`, `X-RateLimit-Reset`, `Retry-After` to determine when you can retry any API requests and adjust your frequency.
+  
+### `500: Internal Server Error`
+- **Problem:** The server encountered an unexpected condition that prevented it from fulfilling the request.
+- **Solution:** Try again later. If the problem persists, contact support.
