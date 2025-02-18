@@ -17,17 +17,91 @@ Setting up SMTP (Simple Mail Transfer Protocol) configuration is necessary for e
 Users must set up file storage configuration to enable seamless storage and access to files within the application. This involves providing details such as server access keys, bucket names, server URLs, and authentication credentials to establish a connection with the designated file storage system.
 
 <AccordionGroup>
-<Accordion title="Minio setup">
-### 1. Accessing the MinIO Server
-- Log in to the MinIO server.
-- Navigate to the **Bucket** section.
+<Accordion title="AWS File Storage Configuration">
 
-### 2. Creating a Bucket
-- Click on **Create Bucket**.
-- Enter the bucket name: `academykit`.
-- Once created, open the bucket details.
-- Navigate to **Access Policy**.
-- Select **Custom** and apply the following policy:
+### Required Details for AWS Configuration:
+- **AWS Access Key**
+- **AWS Secret Key**
+- **AWS CloudFront URL**
+- **File Storage Bucket**
+- **Video Bucket**
+- **Region Endpoint**
+
+#### Where to Get AWS Keys?
+- **AWS Access Key & AWS Secret Key:**
+  - Go to **AWS IAM Console**.
+  - Navigate to **Users > Security Credentials**.
+  - Create a new access key and note down the credentials.
+
+- **AWS CloudFront URL:**
+  - Available in **AWS CloudFront Console** under **Distributions**.
+  - Example: `https://dxxxxx.cloudfront.net/`
+
+- **File Storage Bucket & Video Bucket:**
+  - Created in **AWS S3 Console** under **Buckets**.
+  - Click **Create Bucket**, set a name, and configure permissions.
+
+- **Region Endpoint:**
+  - Found in **AWS S3 Console** under **Bucket Properties**.
+  - Examples:
+    - `s3.us-east-1.amazonaws.com`
+    - `s3.eu-west-1.amazonaws.com`
+</Accordion>
+<Accordion title="Server-based File Storage Configuration">
+### Required Details for Server Configuration:
+- **Server Access Key**
+- **Server Secret Key**
+- **Bucket Name**
+- **Server Endpoint**
+- **Server URL**
+- **Presigned Expiry Time**
+- **Server Presigned URL**
+
+#### Where to Get Server Keys?
+- **Server Access Key & Server Secret Key:**
+  - Generated from the **server storage system** (e.g., MinIO, self-hosted storage).
+  - Typically set by the administrator during setup.
+
+- **Bucket Name:**
+  - Created inside the **server storage system**.
+  - Example: `academykit`
+
+- **Server URL:**
+  - Found in the **server storage settings**.
+  - Example: `https://your-storage-server.com`
+
+- **Server Endpoint:**
+  - Found in the **server storage settings**.
+  - Example: `your-storage-server.com`
+
+- **Presigned Expiry Time:**
+  - Configured in the **server settings**, defining how long a presigned URL remains valid.
+
+- **Server Presigned URL:**
+  - Generated dynamically when fetching files.
+  - Usually provided through API integrations.
+<Accordion title="MinIO File Storage Configuration">
+
+If you prefer to use **MinIO** as your file storage solution, the following configuration is required:
+
+### Required Details for MinIO Configuration:
+- **MinIO Access Key**
+- **MinIO Secret Key**
+- **Bucket Name** (e.g., `academykit`)
+- **MinIO Endpoint URL**
+- **Presigned Expiry Time**
+- **MinIO Presigned URL**
+
+#### MinIO Setup Guide:
+1. **Accessing the MinIO Server**
+   - Log in to the MinIO server.
+   - Navigate to the **Bucket** section.
+
+2. **Creating a Bucket**
+   - Click on **Create Bucket**.
+   - Enter the bucket name: `academykit`.
+   - Open the bucket details and navigate to **Access Policy**.
+   - Select **Custom** and apply the following policy:
 
 ```json
 {
@@ -55,16 +129,15 @@ Users must set up file storage configuration to enable seamless storage and acce
 }
 ```
 
-- Click **Set** and close the dialog.
-
-### 3. Creating Directory Structure
-- Go to **Object Browser**.
-- Click on **academykit**.
-- Click **Create New Path** and create the following paths:
-  - `public`
-  - `private`
+3. **Creating Directory Structure**
+   - Go to **Object Browser**.
+   - Click on **academykit**.
+   - Click **Create New Path** and create the following paths:
+     - `public`
+     - `private`
 
 > Ensure the path names are case-sensitive.
+</Accordion>
 </Accordion>
 </AccordionGroup>
 ## General Settings:
