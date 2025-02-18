@@ -44,8 +44,7 @@
       "pages": [
         "self-hosting-academykit/introduction",
         "self-hosting-academykit/deploy-with-docker",
-        "self-hosting-academykit/configuration",
-        "self-hosting-academykit/minio-configuration"
+        "self-hosting-academykit/configuration"
       ]
     },
     {

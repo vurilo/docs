@@ -17,8 +17,54 @@ Setting up SMTP (Simple Mail Transfer Protocol) configuration is necessary for e
 Users must set up file storage configuration to enable seamless storage and access to files within the application. This involves providing details such as server access keys, bucket names, server URLs, and authentication credentials to establish a connection with the designated file storage system.
 
 <AccordionGroup>
-<Accordion title="Minio setup manually">
-test
+<Accordion title="Minio setup">
+### 1. Accessing the MinIO Server
+- Log in to the MinIO server.
+- Navigate to the **Bucket** section.
+
+### 2. Creating a Bucket
+- Click on **Create Bucket**.
+- Enter the bucket name: `academykit`.
+- Once created, open the bucket details.
+- Navigate to **Access Policy**.
+- Select **Custom** and apply the following policy:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Principal": {"AWS": ["*"]},
+      "Action": ["s3:ListBucket", "s3:ListBucketMultipartUploads", "s3:GetBucketLocation"],
+      "Resource": ["arn:aws:s3:::academykit"]
+    },
+    {
+      "Effect": "Allow",
+      "Principal": {"AWS": ["*"]},
+      "Action": ["s3:AbortMultipartUpload", "s3:DeleteObject", "s3:ListMultipartUploadParts", "s3:PutObject"],
+      "Resource": ["arn:aws:s3:::academykit/private/*"]
+    },
+    {
+      "Effect": "Allow",
+      "Principal": {"AWS": ["*"]},
+      "Action": ["s3:ListMultipartUploadParts", "s3:PutObject", "s3:AbortMultipartUpload", "s3:DeleteObject", "s3:GetObject"],
+      "Resource": ["arn:aws:s3:::academykit/public/*"]
+    }
+  ]
+}
+```
+
+- Click **Set** and close the dialog.
+
+### 3. Creating Directory Structure
+- Go to **Object Browser**.
+- Click on **academykit**.
+- Click **Create New Path** and create the following paths:
+  - `public`
+  - `private`
+
+> Ensure the path names are case-sensitive.
 </Accordion>
 </AccordionGroup>
 ## General Settings:
