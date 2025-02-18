@@ -22,7 +22,7 @@ Users must set up file storage configuration to enable seamless storage and acce
 ### Required Details for AWS Configuration:
 - **AWS Access Key**
 - **AWS Secret Key**
-- **AWS CloudFront URL**
+- **AWS CloudFront**
 - **File Storage Bucket**
 - **Video Bucket**
 - **Region Endpoint**
@@ -33,7 +33,7 @@ Users must set up file storage configuration to enable seamless storage and acce
   - Navigate to **Users > Security Credentials**.
   - Create a new access key and note down the credentials.
 
-- **AWS CloudFront URL:**
+- **AWS CloudFront:**
   - Available in **AWS CloudFront Console** under **Distributions**.
   - Example: `https://dxxxxx.cloudfront.net/`
 
@@ -141,60 +141,102 @@ Create the S3 bucket and attach this policy to allow public access to the ``publ
 <Accordion title="MinIO File Storage Configuration">
 
 If you prefer to use **MinIO** as your file storage solution, the following configuration is required:
-
-### Required Details for MinIO Configuration:
-- **MinIO Access Key**
-- **MinIO Secret Key**
-- **Bucket Name** (e.g., `academykit`)
-- **MinIO Endpoint URL**
-- **Presigned Expiry Time**
-- **MinIO Presigned URL**
-
 #### MinIO Setup Guide:
 1. **Accessing the MinIO Server**
    - Log in to the MinIO server.
-   - Navigate to the **Bucket** section.
 
-2. **Creating a Bucket**
-   - Click on **Create Bucket**.
-   - Enter the bucket name: `academykit`.
-   - Open the bucket details and navigate to **Access Policy**.
-   - Select **Custom** and apply the following policy:
+2. **Create a New Bucket**
+    - Navigate to the **Bucket** section.
+    - Click **Create bucket** and assign a unique name.
 
-```json
-{
-  "Version": "2012-10-17",
-  "Statement": [
+3. **Update the bucket access policy**
+    - Click on the bucket.
+    - Click **Edit** on the access policy and change it to **Custom**.
+    - In the **Write Policy** section, paste the following policy:
+
+    ```json
     {
-      "Effect": "Allow",
-      "Principal": {"AWS": ["*"]},
-      "Action": ["s3:ListBucket"],
-      "Resource": ["arn:aws:s3:::academykit"]
-    },
-    {
-      "Effect": "Allow",
-      "Principal": {"AWS": ["*"]},
-      "Action": ["s3:DeleteObject", "s3:GetObject", "s3:PutObject"],
-      "Resource": ["arn:aws:s3:::academykit/*"]
-    },
-    {
-      "Effect": "Allow",
-      "Principal": {"AWS": ["*"]},
-      "Action": ["s3:GetObject"],
-      "Resource": ["arn:aws:s3:::academykit/public/*"]
+      "Version": "2012-10-17",
+      "Statement": [
+        {
+            "Sid": "PublicReadForPublicFolder",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "*"
+                ]
+            },
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::your-bucket-name/public/*"
+            ]
+        }
+      ]
     }
-  ]
-}
-```
+    ```
+    - Replace `your-bucket-name` with your actual bucket name.
+    - Click **set**.
+4. **Create a Policy**
+    - In the MinIO console, go to **Policies**.
+    - Click **Create policy**.
+    - Assign a name to the policy.
+    - In the **Write Policy** section, paste the following policy:
 
-3. **Creating Directory Structure**
-   - Go to **Object Browser**.
-   - Click on **academykit**.
-   - Click **Create New Path** and create the following paths:
-     - `public`
-     - `private`
+      ```json
+      {
+          "Version": "2012-10-17",
+          "Statement": [
+              {
+                  "Sid": "AllowListBucket",
+                  "Effect": "Allow",
+                  "Action": [
+                      "s3:ListBucket"
+                  ],
+                  "Resource": [
+                      "arn:aws:s3:::your-bucket-name"
+                  ]
+              },
+              {
+                  "Sid": "AllowBucketObjectActions",
+                  "Effect": "Allow",
+                  "Action": [
+                      "s3:DeleteObject",
+                      "s3:GetObject",
+                      "s3:PutObject"
+                  ],
+                  "Resource": [
+                      "arn:aws:s3:::your-bucket-name/*"
+                  ]
+              }
+          ]
+      }
+      ```
+    - Replace `your-bucket-name` with your actual bucket name.
+    - Click **Save**.
 
-> Ensure the path names are case-sensitive.
+5. **Create a Group and Assign Permissions**
+    - In MinIO, navigate to **Groups**.
+    - Click **Create group** and assign a name.
+    - Select the user you want to assign to the group. If user not created, create a user from users by adding the username and password.
+    - Click **Create group**.
+    - Click on the created group.
+    - In the **Policies** section, select the policy you created.
+
+6. **Create an Access Key**
+    - Go to **Users** and select the assigned user.
+    - Navigate to **Service Accounts**.
+    - Click **Create Access Key**.
+    - Assign a name and click **Create**.
+
+7. **Copy and Store the Following Variables**
+    - **Server Access Key**
+    - **Server Secret Key**
+    - **Bucket Name**
+    - **Server Endpoint**
+    - **Server Presigned URL**
+    - **Server URL**
 </Accordion>
 </Accordion>
 </AccordionGroup>
