@@ -46,6 +46,64 @@ Users must set up file storage configuration to enable seamless storage and acce
   - Examples:
     - `s3.us-east-1.amazonaws.com`
     - `s3.eu-west-1.amazonaws.com`
+
+  ### IAM Policy Creation for AWS S3
+
+Before you proceed with creating your AWS bucket, ensure that the following IAM policy is created and attached to your group or user. Modify the `bucket-name` appropriately to match your setup.
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowListBucket",
+            "Effect": "Allow",
+            "Action": [
+                "s3:ListBucket"
+            ],
+            "Resource": [
+                "arn:aws:s3:::bucket-name"
+            ]
+        },
+        {
+            "Sid": "AllowBucketObjectActions",
+            "Effect": "Allow",
+            "Action": [
+                "s3:DeleteObject",
+                "s3:GetObject",
+                "s3:PutObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::bucket-name/*"
+            ]
+        }
+    ]
+}
+```
+### Bucket Policy for AWS S3
+Create the S3 bucket and attach this policy to allow public access to the ``public/`` folder.
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadForPublicFolder",
+            "Effect": "Allow",
+            "Principal": {
+                "AWS": [
+                    "*"
+                ]
+            },
+            "Action": [
+                "s3:GetObject"
+            ],
+            "Resource": [
+                "arn:aws:s3:::bucket-name/public/*"
+            ]
+        }
+    ]
+}
+```
 </Accordion>
 <Accordion title="Server-based File Storage Configuration">
 ### Required Details for Server Configuration:
@@ -110,19 +168,19 @@ If you prefer to use **MinIO** as your file storage solution, the following conf
     {
       "Effect": "Allow",
       "Principal": {"AWS": ["*"]},
-      "Action": ["s3:ListBucket", "s3:ListBucketMultipartUploads", "s3:GetBucketLocation"],
+      "Action": ["s3:ListBucket"],
       "Resource": ["arn:aws:s3:::academykit"]
     },
     {
       "Effect": "Allow",
       "Principal": {"AWS": ["*"]},
-      "Action": ["s3:AbortMultipartUpload", "s3:DeleteObject", "s3:ListMultipartUploadParts", "s3:PutObject"],
-      "Resource": ["arn:aws:s3:::academykit/private/*"]
+      "Action": ["s3:DeleteObject", "s3:GetObject", "s3:PutObject"],
+      "Resource": ["arn:aws:s3:::academykit/*"]
     },
     {
       "Effect": "Allow",
       "Principal": {"AWS": ["*"]},
-      "Action": ["s3:ListMultipartUploadParts", "s3:PutObject", "s3:AbortMultipartUpload", "s3:DeleteObject", "s3:GetObject"],
+      "Action": ["s3:GetObject"],
       "Resource": ["arn:aws:s3:::academykit/public/*"]
     }
   ]
